@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "Blog with Sapper"
+    "name": "BD Blog"
   },
   "api": {
     "projectId": "wpng9f0w",
