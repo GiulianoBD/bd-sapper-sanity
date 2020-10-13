@@ -2,7 +2,7 @@
 
 _Fully customizable blog template with a Svelte.js front-end._
 
-Deployed from [sanity.io/create](https://www.sanity.io/create?template=sanity-io/sanity-template-sapper-blog)
+Deployed by Giuliano@BD from SanityCli [sanity.io/create](https://www.sanity.io/create?template=sanity-io/sanity-template-sapper-blog)
 
 ## What you have
 
