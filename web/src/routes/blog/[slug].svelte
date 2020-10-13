@@ -33,6 +33,17 @@
   export let post;
 </script>
 
+<svelte:head>
+  <title>{post.title}</title>
+</svelte:head>
+
+<h1>{post.title}</h1>
+
+<div class="content">
+  <BlockContent blocks={post.body} {serializers} />
+</div>
+
+
 <style>
   .content :global(h2) {
     font-size: 1.4em;
@@ -56,13 +67,3 @@
     margin: 0 0 0.5em 0;
   }
 </style>
-
-<svelte:head>
-  <title>{post.title}</title>
-</svelte:head>
-
-<h1>{post.title}</h1>
-
-<div class="content">
-  <BlockContent blocks={post.body} {serializers} />
-</div>
