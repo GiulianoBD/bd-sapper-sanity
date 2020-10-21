@@ -1,60 +1,90 @@
 <script>
+	import { goto } from '@sapper/app'
+	import SVGLogo from './brand/SVGLogo.svelte'
 	export let segment;
+
+	let navw;
+
+	// $: console.log(navw)
+
 </script>
 
+<nav bind:clientWidth="{navw}" class="nav__wrap" >
+	<div class="nav__main flex" >
+		<div class="nav__logo" on:click="{()=>{ goto('.') }}" >
+			<SVGLogo />
+		</div>
+		
+		{#if navw > 600 }
+
+			<div class="nav__widget--holder">
+
+				<ul class="inline">
+					<li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
+					<li><a class='{segment === "about" ? "selected" : ""}' href='about'>about</a></li>
+					<!-- <li><a rel=prefetch class='{segment === "blog" ? "selected" : ""}' href='blog'>blog</a></li> -->
+				</ul>
+				
+				<div class="nav__link--dashboard">
+					<p>Area Riservata</p>
+				</div>
+				
+			</div>
+
+			{:else}
+				[TODO HAMBURGER LOGIC] 
+		{/if}
+
+	</div>
+</nav>
+
 <style>
-	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
-		font-weight: 300;
-		padding: 0 1em;
+	
+	.nav__wrap {
+		left: 0;
+		right: 0;
+		z-index: 1;
+		position: fixed;
+		font-size: 22px;
+	}
+	
+	.nav__main {
+		margin: 20px auto;
+		padding: 5px;
+		width: var(--contentw);
+		background-color: white;
+		box-sizing: border-box;
 	}
 
-	ul {
+	.nav__logo {
+		display: inline-block;
+		height: 52px;
+		cursor: pointer;
+	}
+	
+	.nav__widget--holder {
+		display: inline-flex;
+		height: 52px;
+	}
+
+	.nav__link--dashboard {
+		cursor: pointer;
+		background-color: var(--brandcolor);
+	}
+
+	.nav__link--dashboard p {
+		color: white;
 		margin: 0;
-		padding: 0;
-	}
-
-	/* clearfix */
-	ul::after {
-		content: '';
-		display: block;
-		clear: both;
+		padding: 0 20px;
+		line-height: 52px;
 	}
 
 	li {
-		display: block;
-		float: left;
+		margin-right: 20px;
 	}
 
-	.selected {
-		position: relative;
-		display: inline-block;
+	li:last-of-type {
+		margin-right: 40px;
 	}
 
-	.selected::after {
-		position: absolute;
-		content: '';
-		width: calc(100% - 1em);
-		height: 2px;
-		background-color: rgb(255,62,0);
-		display: block;
-		bottom: -1px;
-	}
-
-	a {
-		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
-	}
 </style>
-
-<nav>
-	<ul>
-		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
-		<li><a class='{segment === "about" ? "selected" : ""}' href='about'>about</a></li>
-
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch class='{segment === "blog" ? "selected" : ""}' href='blog'>blog</a></li>
-	</ul>
-</nav>

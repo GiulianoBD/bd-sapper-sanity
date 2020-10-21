@@ -2,6 +2,7 @@
   import client from "../../sanityClient";
   import BlockContent from "@movingbrands/svelte-portable-text";
   import serializers from "../../components/serializers";
+
   export async function preload({ params }) {
     // the `slug` parameter is available because
     // this file is called [slug].html
@@ -30,7 +31,21 @@
 </script>
 
 <script>
+  import Footer from '../../components/bloks/Footer.svelte'
+
+  import { scrollTrigger } from '../../components/plug/ScrollController.svelte';
+  import { onMount } from "svelte";
+  
   export let post;
+
+  onMount(() => {
+    
+    console.log($scrollTrigger)
+    $scrollTrigger = 'update'
+
+    // return () => { console.log('Blogpost Destroyed') }
+  })
+
 </script>
 
 <svelte:head>
@@ -43,6 +58,9 @@
   <BlockContent blocks={post.body} {serializers} />
 </div>
 
+<section style="height:400vh; border:10px solid red" ></section>
+
+<Footer />
 
 <style>
   .content :global(h2) {

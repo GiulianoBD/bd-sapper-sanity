@@ -3,6 +3,10 @@
   export let language;
 </script>
 
+<pre data-language={language}>
+  <code>{code}</code>
+</pre>
+
 <style>
   pre {
     background-color: #f9f9f9;
@@ -26,7 +30,3 @@
     border-radius: 2px;
   }
 </style>
-
-<pre data-language={language}>
-  <code>{code}</code>
-</pre>

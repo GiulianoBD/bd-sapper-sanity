@@ -66,6 +66,12 @@ export default {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body'
+    },
+    {
+      title: 'Select to give the status of "Featured" to the post',
+      description: 'Toggle this boolean to include the post between the Highlihgts',
+      name: 'Featured',
+      type: 'boolean'
     }
   ],
   orderings: [

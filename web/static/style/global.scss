@@ -1,0 +1,123 @@
+@import 'modules/base.scss';
+@import url("https://use.typekit.net/xyx6pvk.css"); // font-family: neue-haas-grotesk-display, sans-serif;
+
+
+::placeholder {
+  color: #0015982b;
+}
+
+:root {
+
+    --bgcolor: #fff;
+    --brandcolor: #3D488C;
+    --contentw: calc(100% - 20px);
+
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+    @media (min-width:320px) { 
+        --contentw: calc(100% - 30px)
+    }
+
+     /* smartphones, Android phones, landscape iPhone */ 
+    @media (min-width:480px) { 
+        --contentw: calc(100% - 40px)
+    }
+
+     /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ 
+    @media (min-width:600px) { 
+        --contentw: calc(100% - 60px)
+    }
+
+     /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+    @media (min-width:801px) { 
+        --contentw: 720px
+    }
+
+     /* big landscape tablets, laptops, and desktops */ 
+    @media (min-width:1025px) { 
+        --contentw: 880px
+    }
+
+     /* hi-res laptops and desktops */ 
+    @media (min-width:1281px) { 
+        --contentw: 1080px
+    }
+
+}
+
+body {
+    font-family: neue-haas-grotesk-display, sans-serif;
+}
+
+#sapper {
+    width: 100%;
+}
+
+#footerlogo svg g {
+    fill: white;
+}
+
+/// Recurring Components
+
+.cbox {
+    width: var(--contentw);
+    margin: 0 auto;
+}
+
+.boxpad {
+    padding: 80px 0;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} 
+ 
+.img__cover {
+    background-position: center;
+    background-size: cover;
+}
+
+.btn__white {
+    color: var(--brandcolor);
+    background-color: white;
+}
+
+.btn__blue {
+    font-weight: bolder;
+    padding: 15px 40px;
+    color: white;
+    background-color: var(--brandcolor);
+}
+
+.btn__clear {
+    background-color: transparent;
+    color: white;
+}
+
+.icon {
+    height: 24px;
+    width: 24px;
+    &.small {
+        height: 12px;
+        width: 12px;
+    }
+    &.medium {
+        height: 36px;
+        width: 36px;
+    }
+    &.large {
+        height:48px;
+        width:48px;
+    }
+    &.extra {
+        height:60px;
+        width:60px;
+    }
+    &.blue {
+        color: var(--brandcolor);
+    }
+    &.white {
+        color: #fff;
+    }
+}
